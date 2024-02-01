@@ -15,13 +15,14 @@ function playGame() {
 }
 
 function playRound (computerSelection, humanSelection) {
-    if (computerSelection === humanSelection) {console.log("Try again!"); playRound (getComputerChoice(), getHumanChoice());}
+    if (computerSelection === humanSelection) {console.log("Try again!"); return playRound (getComputerChoice(), getHumanChoice());}
         else if (computerSelection === "rock" && humanSelection === "paper"){console.log("You Win! Paper beats Rock"); return 1;}
         else if (computerSelection === "rock" && humanSelection === "scissors"){console.log("You Lose! Rock beats Scissors"); return 0;}
         else if (computerSelection === "scissors" && humanSelection === "paper"){console.log("You Lose! Scissors beats Paper"); return 0;}
         else if (computerSelection === "scissors" && humanSelection === "rock"){console.log("You Win! Rock beats Scissors"); return 1;}
         else if (computerSelection === "paper" && humanSelection === "scissors"){console.log("You Win! Scissors beats Paper"); return 1;}
         else if (computerSelection === "paper" && humanSelection === "rock"){console.log("You Lose! Paper beats Rock"); return 0;}
+        else return 0;
 
 
 }
@@ -38,7 +39,7 @@ function getHumanChoice() {
     let choiceFixed = choice.toLowerCase();
     if (!choices.includes(choiceFixed)) {
         console.log("What the hell is that? Make a real move!");
-        getHumanChoice();
+        return getHumanChoice();
     } else {
         console.log(choiceFixed);
         return choiceFixed;
