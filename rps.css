@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.results{
+    /* display: flex; */
+
+}
+
+button{
+    border-radius: 8px;
+    font-size: 18px;
+}

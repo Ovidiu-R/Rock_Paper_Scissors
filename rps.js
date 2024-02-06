@@ -1,17 +1,32 @@
 const choices = ["rock", "paper", "scissors"];
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach(button => {
+        button.addEventListener('mouseover', () => {
+            button.style.backgroundColor = 'pink';
+        });
+    
+        button.addEventListener('mouseout', () => {
+            button.style.backgroundColor = 'blue';
+        });
+    });
+    
+});
+
+
 playGame();
 
 function playGame() {
     let result = 0;
-    for (let i=0; i<5; i++) {
+    // for (let i=0; i<5; i++) {
         result += playRound (getComputerChoice(), getHumanChoice());
-    }
+    // }
     console.log (result);
-    if (result >= 3) {
-        console.log ("Winner, winner, chicken dinner!");
-    }   else {
-        console.log ("Ooof, you got smashed bruv");
-    }
+    // if (result >= 3) {
+    //     console.log ("Winner, winner, chicken dinner!");
+    // }   else {
+    //     console.log ("Ooof, you got smashed bruv");
+    // }
 }
 
 function playRound (computerSelection, humanSelection) {
@@ -45,3 +60,4 @@ function getHumanChoice() {
         return choiceFixed;
     }
 }
+
