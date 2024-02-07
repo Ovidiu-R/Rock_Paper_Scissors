@@ -1,16 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 const choices = ["rock", "paper", "scissors"];
-let humanChoice = "";
-let buttons = 0;
-let roundResult = "";
-let score = "";
-let winner = "";
-
-buttons = document.querySelectorAll("button");
-roundResult = document.getElementById('roundResult');
-score = document.getElementById('score');
-winner = document.getElementById('winner');
+let buttons = document.querySelectorAll("button");
+let roundResult = document.getElementById('roundResult');
+let score = document.getElementById('score');
+let winner = document.getElementById('winner');
 buttons.forEach(button => {
     button.addEventListener('mouseover', () => {
         button.style.backgroundColor = 'gold';
@@ -19,24 +13,20 @@ buttons.forEach(button => {
     button.addEventListener('mouseout', () => {
         button.style.backgroundColor = '';
     });
-    button.addEventListener('click', () => {
-        getHumanChoice(button.id);
+    button.addEventListener('click', (e) => {
+        getHumanChoice(e.target.id);
+        playGame();
     });
 });
 
-
-
-
-
-
 function playGame() {
     let scores = {player: 0, computer: 0};
-        while (scores.player < 5 && scores.computer < 5){
+        // while (scores.player < 5 && scores.computer < 5){
             playRound (getComputerChoice(), getHumanChoice(), scores);
-        }
-        if (scores.player > scores.computer){
+        // }
+        if (scores.player >= 5){
             winner.textContent = "Player wins!";
-        } else {
+        } else if (scores.computer >= 5){
             winner.textContent = "Computer wins!";
         }
 }
@@ -90,6 +80,5 @@ function getHumanChoice(choice) {
                
 }
 
-playGame();
 
 });
